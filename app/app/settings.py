@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
-import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,18 +83,9 @@ DATABASES = {
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASS'), 
     },
-    'test': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mytestdb',
-        'USER': 'myuser',
-        'PASSWORD': 'mypassword',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
 }
 
-if 'test' in sys.argv:
-    DATABASES['default'] = DATABASES['test']
+
     
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
